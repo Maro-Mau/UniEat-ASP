@@ -1,39 +1,70 @@
 ﻿@{
-
-    ViewData["Title"] = "The list of the Weekly Culinary tasting";
+    var daysOfWeek = new List<string> { "Montag","Montag2","Suppe", "Dienstag", "Mittwoch", "Donnerstag", "Freitag","Freitag2" };
 }
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bestellung</title>
+</head>
+<body>
+    <h2 style="align-content">Dein Essen dein Glück</h2>
+    <p style="align-content">Nur ein voller Magen ist ein Glücklicher</p>
 
-<table class="bg-light">
-    <thead>
-        <tr>
-            <th>Montag</th>
-            <th>/</th>
-            <th>Dienstag</th>
-            <th>/</th>
-            <th>Mittwoch</th>
-            <th>/</th>
-            <th>Donnerstag</th>
-            <th>/</th>
-            <th>Freitag</th>
-        </tr>
-    
-    
-    </thead>
-    <tbody>
-        <td> Brötchen mit Bratwurst</td>
-         <th>/</th>
-        <td> Mousaka</td>
-         <th>/</th>
-        <td> Grillteller</td>
-         <th>/</th>
-        <td> Nudeln mit Soße</td>
-         <th>/</th>
-        <td> Heute bleibt die küche kalt</td>
+    <form class="alert-info">
+        @foreach (var day in daysOfWeek)
+        {
+            <div>
+                <strong>@day</strong>
 
-    </tbody>
-    <tbody>
+                @for (int i = 1; i <= 1; i++)
+                {
+                    @if(day == "Montag" || day =="Montag2")
+                    {
+                        <label class="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="A" /> A
+                        </label>
 
-        <td> Brötchen mit Bratwurst</td>
-    </tbody>
-</table>
+                        <label class="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="B" /> B
+                        </label>
+
+                    }else if (day == "Freitag" || day == "Freitag2")
+                    {
+                        <label class="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="A" /> A
+                        </label>
+
+                        <label class="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="B" /> B
+                        </label>
+                    }else if(day == "Suppe")
+                    {
+                        <label class="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="Suppe" /> Ja
+                        </label>
+                    }
+                    else
+                    {
+                       <label class="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="A" /> A
+                       </label>
+
+                         <label class ="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="B" /> B
+                        </label>
+
+                        <label class="card-body">
+                            <input type="radio" name="@($"{day}Option{i}")" value="C" /> C
+                        </label>
+                        
+                    }
+                }
+            </div>
+        }
+
+        <br />
+        <input class="btn-outline-success" type="submit" value="Auswahl bestätigen" />
+    </form>
+</body>
+</html>
