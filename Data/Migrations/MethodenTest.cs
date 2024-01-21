@@ -2,5 +2,9 @@
 {
     public class MethodenTest
     {
+        public void Test()
+        {
+
+        }
     }
 }

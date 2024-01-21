@@ -1,0 +1,97 @@
+﻿@model UniEat.Models.LunchPosting
+@{
+    ViewData["Title"] = "Wochen Übersicht";
+}
+
+<form asp-controller="UniEatAdmin" asp-action="OrderLunch">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h4> Bitte die aktuelle Liste erstellen</h4>
+            <div class="row">
+                <div class="col">Montag</div>
+                <div class="col">Dienstag</div>
+                <div class="col">Mittwoch</div>
+                <div class="col">Donnerstag</div>
+                <div class="col">Freitag</div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <input asp-for="M1" type="text"
+                           placeholder="A für Montag" />
+                </div>
+                <div class="col">
+                    <input asp-for="D1" type="text"
+                           placeholder="A für Dienstag" />
+                </div>
+                <div class="col">
+                    <input asp-for="MI1" type="text"
+                           placeholder="A für Mittwoch" />
+                </div>
+                <div class="col">
+                    <input asp-for="DO1" type="text"
+                           placeholder="A für Donnerstag" />
+                </div>
+                <div class="col">
+                    <input asp-for="F1" type="text"
+                           placeholder="A für Freitag" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input asp-for="M2" type="text"
+                           placeholder="B für Montag" />
+                </div>
+                <div class="col">
+                    <input asp-for="D2" type="text"
+                           placeholder="B für Dienstag" />
+                </div>
+                <div class="col">
+                    <input asp-for="MI2" type="text"
+                           placeholder="B für Mittwoch" />
+                </div>
+                <div class="col">
+                    <input asp-for="DO2" type="text"
+                           placeholder="B für Donnerstag" />
+                </div>
+                <div class="col">
+                    <input asp-for="F2" type="text"
+                           placeholder="B für Freitag" />
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input asp-for="M3" type="text"
+                               placeholder="C für Montag" />
+                    </div>
+                    <div class="col">
+                        <input asp-for="D3" type="text"
+                               placeholder="C für Dienstag" />
+                    </div>
+                    <div class="col">
+                        <input asp-for="MI3" type="text"
+                               placeholder="C für Mittwoch" />
+                    </div>
+                    <div class="col">
+                        <input asp-for="DO3" type="text"
+                               placeholder="C für Donnerstag" />
+                    </div>
+                    <div class="col">
+                        <p>kein C</p>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary" type="submit">
+                        Liste
+                        erstellen
+                    </button>
+
+                </div>
+            </div>
+</form>
