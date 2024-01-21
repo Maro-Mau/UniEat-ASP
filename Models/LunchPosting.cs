@@ -16,6 +16,9 @@
         public string DO3 { get; set; } = "null";
         public string F1 { get; set; } = "null";
         public string F2 { get; set; } = "null";
-
+        public bool Beef { get; set; } = false;
+        public bool Pork { get; set; } = false;
+        public bool Veggie { get; set; } = false;
+        public bool Chicken { get; set; } = false;
     }
 }

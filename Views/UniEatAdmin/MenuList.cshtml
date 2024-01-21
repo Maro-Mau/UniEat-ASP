@@ -3,7 +3,7 @@
     ViewData["Title"] = "Wochen Übersicht";
 }
 
-<form asp-controller="UniEatAdmin" asp-action="OrderLunch">
+<form asp-controller="UniEatAdmin" asp-action="MenuList">
 
     <div class="card">
 
@@ -19,10 +19,30 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
+            <div class="row form-text">
                 <div class="col">
                     <input asp-for="M1" type="text"
                            placeholder="A für Montag" />
+                    <div class="row">
+                        <div class="col">
+                        <input type="checkbox" asp-for="Beef"/> Rind
+
+                        </div>
+                        <div class="col">
+                            <input type="checkbox" asp-for="Pork" /> Schwein
+                        </div>
+                    </div>
+                         <div class="col">
+                            <input type="checkbox" asp-for="Chicken" /> Chicken
+
+                        </div>
+                        <div class="col">
+                            <input type="checkbox" asp-for="Veggie" /> Veg.
+
+                        </div>
+                    <div class="col form-check">
+                    </div>
+                    
                 </div>
                 <div class="col">
                     <input asp-for="D1" type="text"
@@ -42,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-text">
                 <div class="col">
                     <input asp-for="M2" type="text"
                            placeholder="B für Montag" />
@@ -62,13 +82,13 @@
                 <div class="col">
                     <input asp-for="F2" type="text"
                            placeholder="B für Freitag" />
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <input asp-for="M3" type="text"
+                 </div>
+            </div>
+            <div class="row form-text">
+                <div class="col">
+                   <input asp-for="M3" type="text"
                                placeholder="C für Montag" />
-                    </div>
+                </div>
                     <div class="col">
                         <input asp-for="D3" type="text"
                                placeholder="C für Dienstag" />
@@ -82,8 +102,10 @@
                                placeholder="C für Donnerstag" />
                     </div>
                     <div class="col">
-                        <p>kein C</p>
-                    </div>
+                        <input asp-for="F2" type="text"
+                               placeholder="C für Freitag" />
+            </div>
+
 
                 </div>
                 <div class="card-footer">
