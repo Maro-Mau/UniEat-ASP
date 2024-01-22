@@ -1,0 +1,46 @@
+﻿@model UniEat.Models.DishesDbModel
+
+@{
+    ViewData["Title"] = "Create Dishes";
+}
+
+
+<form asp-controller="UniEatAdmin" asp-action="DishesDB">
+    <div class="card">
+        <div class="card-header">
+           <h1 class="accordion-body">Hier werden gerichte in die Datenbank eingetragen</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <input class="text-body" asp-for="NameOfDish" type="text" placeholder="Gib den Namen des Gerichtes ein!" />
+            </div>
+            <div class="row-8">
+                <div class="col">
+                    <input type="checkbox" asp-for="Beef" accept="False" /> Beef
+                </div>
+                <div class="col">
+                    <input type="checkbox" asp-for="Pork" accept="False"/> Pork
+                </div>
+                <div class="col">
+                    <input type="checkbox" asp-for="Chicken" accept="False"/> Chicken
+                </div>
+                <div class="col">
+                    <input type="checkbox" asp-for="Veggie" accept="False"/> Veggie
+                </div>
+                <div class="col">
+                    <input type="checkbox" asp-for="Fish" accept="False"/> Fish
+                </div>
+            </div>
+        </div>
+            
+
+
+    </div>
+
+
+
+
+    
+
+
+</form>

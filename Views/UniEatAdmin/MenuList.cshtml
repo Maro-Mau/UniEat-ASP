@@ -3,12 +3,21 @@
     ViewData["Title"] = "Wochen Übersicht";
 }
 
-<form asp-controller="UniEatAdmin" asp-action="MenuList">
+<form asp-controller="UniEatAdmin" asp-action="PostMenu">
 
     <div class="card">
 
         <div class="card-header">
             <h4> Bitte die aktuelle Liste erstellen</h4>
+            <div>
+                <div class="col-form-label">
+                    <label>Ab wann gilt die Liste:</label>
+                </div>
+                <div class="col">
+                    <input maxlength="50" asp-for="LunchID" type="date" />
+
+                </div>
+            </div>
             <div class="row">
                 <div class="col">Montag</div>
                 <div class="col">Dienstag</div>
@@ -23,17 +32,20 @@
                 <div class="col">
                     <input asp-for="M1" type="text"
                            placeholder="A für Montag" />
-                    <div class="row">
+                    <div class="row-1">
                         <div class="col">
-                        <input type="checkbox" asp-for="Beef"/> Rind
+                        <input type="checkbox" asp-for="Beef"/>
+                        <label>Beef</label>
 
                         </div>
                         <div class="col">
-                            <input type="checkbox" asp-for="Pork" /> Schwein
+                            <input type="checkbox" asp-for="Pork" />
+                            <label class="">Pork</label>
                         </div>
                     </div>
+                        
                          <div class="col">
-                            <input type="checkbox" asp-for="Chicken" /> Chicken
+                            <input type="checkbox" asp-for="Chicken"  /> Chicken
 
                         </div>
                         <div class="col">
@@ -41,6 +53,9 @@
 
                         </div>
                     <div class="col form-check">
+                    </div>
+                    <div class="col">
+
                     </div>
                     
                 </div>
@@ -113,7 +128,15 @@
                         Liste
                         erstellen
                     </button>
+        
 
+                    <button class="btn btn-danger" type="submit">
+                        Liste 2
+                    </button>
+                    <button class="btn btn-close" onclick="location.href='@Url.Action("Index","Home" )'" />
+
+         
                 </div>
-            </div>
+        </div>
+    </div>
 </form>
