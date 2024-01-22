@@ -20,7 +20,17 @@ namespace UniEat.Controllers
 
         public IActionResult DishesDB(DishesDbModel dishesDb)
         {
-            return RedirectToAction("CreateDisches");
+            int id = dishesDb.Id;
+            if(dishesDb.Id == 0)
+            {
+                id++;
+                _context.DishesDatabase.Add(dishesDb);
+            }else
+            {
+                _context.DishesDatabase.Update(dishesDb);
+            }
+            _context.SaveChanges();
+            return RedirectToAction("CreateDishes");
         }
 
 
