@@ -1,0 +1,61 @@
+﻿@model List<DishesDbModel>
+@{
+    ViewData["Title"] = "Edit Dish";
+}
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Beef
+            </th>
+            <th>
+                Pork
+            </th>
+            <th>
+                Chicken
+            </th>
+            <th>
+                Veggie
+            </th>
+            <th>
+                Fish
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        
+
+        @{
+            foreach(DishesDbModel dishesDbModel in Model)
+            {
+                <tr>
+                    <td>@dishesDbModel.NameOfDish</td>
+                    <td>@if (dishesDbModel.Beef == true)
+                        {
+                            <i class="bi bi-check-circle"></i>
+                        }
+                        else
+                        {
+                            <button class="btn btn-close"></button>
+                        }
+
+                    </td>
+                    <td>@dishesDbModel.Pork</td>
+                    <td>@dishesDbModel.Chicken</td>
+                    <td>@dishesDbModel.Veggie</td>
+                    <td>@dishesDbModel.Fish</td>
+                </tr>
+
+
+            }
+
+        }
+
+    </tbody>
+
+</table>

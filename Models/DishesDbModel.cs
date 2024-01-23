@@ -10,6 +10,7 @@
         public bool Chicken { get; set; }
         public bool Veggie { get; set; }
         public bool Fish { get; set; }
+        public string Owner { get; set; }
 
     }
 }

@@ -18,16 +18,18 @@ namespace UniEat.Controllers
             return View();
         }
 
-        public IActionResult DishesDB(DishesDbModel dishesDb)
+        public IActionResult addDishToDB(DishesDbModel dish)
         {
-            int id = dishesDb.Id;
-            if(dishesDb.Id == 0)
+            dish.Owner = User.Identity.Name;
+
+            int id = dish.Id;
+            if(dish.Id == 0)
             {
                 id++;
-                _context.DishesDatabase.Add(dishesDb);
+                _context.DishesDatabase.Add(dish);
             }else
             {
-                _context.DishesDatabase.Update(dishesDb);
+                _context.DishesDatabase.Update(dish);
             }
             _context.SaveChanges();
             return RedirectToAction("CreateDishes");
@@ -61,6 +63,10 @@ namespace UniEat.Controllers
 
             return RedirectToAction("MenuList");
         }
-        
+        public IActionResult EditDish()
+        {
+            var dishFromDB = _context.DishesDatabase.Where(x => x.Owner == User.Identity.Name).ToList();
+            return View(dishFromDB);
+        }
     }
 }
