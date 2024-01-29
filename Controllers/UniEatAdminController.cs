@@ -46,11 +46,13 @@ namespace UniEat.Controllers
             if (dish.Id == 0)
             {
                 // Wenn die ID 0 ist, werden die Daten von "DishesDbModel" in die Datenbank geschrieben.
+                dish.CreateTime = DateTime.Now;
                 _context.DishesDatabase.Add(dish);
             }
             else
             {
                 // Wenn die ID nicht 0 ist, werden die Parameter in der Datenbank aktualisiert.
+                dish.UpdateTime = DateTime.Now;
                 _context.DishesDatabase.Update(dish);
             }
 
@@ -92,7 +94,7 @@ namespace UniEat.Controllers
             var dishFromDB = _context.DishesDatabase.Where(x => x.Owner == User.Identity.Name).ToList();
             return View(dishFromDB);
         }
-
+        [HttpPost]
         public IActionResult DeleteDish(int Id)
         {
             // Wenn die ID 0 ist, wird ein Fehler ausgegeben.

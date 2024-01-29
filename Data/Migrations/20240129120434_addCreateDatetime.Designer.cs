@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniEat.Data;
 
@@ -11,9 +12,11 @@ using UniEat.Data;
 namespace UniEat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240129120434_addCreateDatetime")]
+    partial class addCreateDatetime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,9 +257,6 @@ namespace UniEat.Data.Migrations
 
                     b.Property<bool>("Pork")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<bool>("Veggie")
                         .HasColumnType("bit");

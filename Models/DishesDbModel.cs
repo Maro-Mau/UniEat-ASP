@@ -11,6 +11,8 @@
         public bool Veggie { get; set; }
         public bool Fish { get; set; }
         public string Owner { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
 
     }
 }
