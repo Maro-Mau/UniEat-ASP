@@ -37,7 +37,7 @@ namespace UniEat.Controllers
             // Wenn keine ID übergeben wurde, wird angenommen, dass ein neues Gericht angelegt wird.
             return View();
         }
-
+        [HttpPost]
         public IActionResult addDishToDB(DishesDbModel dish)
         {
             // Hier wird dem Gericht ein Besitzer (Owner) hinzugefügt. Aktuell ist es noch der Ersteller, sollte sich jedoch auf eine Rolle ändern, z.B. Admin.
@@ -59,7 +59,7 @@ namespace UniEat.Controllers
             // SaveChanges ist sehr wichtig, da es den Befehl sendet, dass alles, was zuvor passiert ist, gespeichert werden soll.
             _context.SaveChanges();
 
-            return RedirectToAction("CreateEditDishes");
+            return View("CreateEditDishes");
         }
 
         public IActionResult Index()
