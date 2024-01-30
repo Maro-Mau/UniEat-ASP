@@ -5,7 +5,7 @@ using UniEat.Models;
 
 namespace UniEat.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class UniEatAdminController : Controller
     {
         // Hier wird die Datenbank injiziert.
@@ -43,10 +43,10 @@ namespace UniEat.Controllers
         [HttpPost]
         public IActionResult addDishToDB(DishesDbModel dish)
         {
-            if (dish.Owner != User.Identity.Name)
-            {
-                return Unauthorized();
-            }
+            //if (dish.Owner != User.Identity.Name)
+            //{
+            //    return Unauthorized();
+            //}
             // Hier wird dem Gericht ein Besitzer (Owner) hinzugefügt. Aktuell ist es noch der Ersteller, sollte sich jedoch auf eine Rolle ändern, z.B. Admin.
             dish.Owner = User.Identity.Name;
 
