@@ -10,10 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Assets\Icons\false.jpg" />
-    <None Include="wwwroot\Assets\Icons\false.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="wwwroot\Assets\Icons\False.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

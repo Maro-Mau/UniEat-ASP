@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using UniEat.Data;
 using UniEat.Models;
 
 namespace UniEat.Controllers
 {
+    [Authorize]
     public class UniEatAdminController : Controller
     {
         // Hier wird die Datenbank injiziert.
@@ -16,6 +18,7 @@ namespace UniEat.Controllers
 
         public IActionResult CreateEditDishes(int Id)
         {
+
             // Hier wird ein neues Gericht erstellt und/oder eines aus der Datenbank geladen, um es zu ändern.
             if (Id != 0)
             {
@@ -40,6 +43,10 @@ namespace UniEat.Controllers
         [HttpPost]
         public IActionResult addDishToDB(DishesDbModel dish)
         {
+            if (dish.Owner != User.Identity.Name)
+            {
+                return Unauthorized();
+            }
             // Hier wird dem Gericht ein Besitzer (Owner) hinzugefügt. Aktuell ist es noch der Ersteller, sollte sich jedoch auf eine Rolle ändern, z.B. Admin.
             dish.Owner = User.Identity.Name;
 
@@ -114,6 +121,10 @@ namespace UniEat.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("EditDish");
+        }
+        public IActionResult CreateEditWeeklyPlan()
+        {
+            return View();
         }
     }
 }
