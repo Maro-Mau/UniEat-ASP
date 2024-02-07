@@ -11,20 +11,14 @@ namespace UniEat.Class
     public class DbComs : Controller
     {
         private readonly ApplicationDbContext _context;
-<<<<<<< Updated upstream
 
         public string? Owner { get; }
 
         public DbComs(ApplicationDbContext context)
         {
             _context = context;
-=======
-       
-        public DbComs(ApplicationDbContext context)
-        {
-            _context = context;
-           
->>>>>>> Stashed changes
+      
+
         }
         public IActionResult AddDish(DishesDbModel dish)
         {
