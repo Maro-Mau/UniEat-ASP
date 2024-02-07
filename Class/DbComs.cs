@@ -10,22 +10,13 @@ namespace UniEat.Class
     public class DbComs : Controller
     {
         private readonly ApplicationDbContext _context;
-        private ApplicationDbContext context;
 
         public string? Owner { get; }
 
-        public DbComs(ApplicationDbContext context, System.Security.Principal.IIdentity identity)
+        public DbComs(ApplicationDbContext context)
         {
             _context = context;
-            Owner = identity.Name;
         }
-
-        public DbComs(ApplicationDbContext context, string owner)
-        {
-            this.context = context;
-            Owner = owner;
-        }
-
         public IActionResult AddDish(DishesDbModel dish)
         {
             

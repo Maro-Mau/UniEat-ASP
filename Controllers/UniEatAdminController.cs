@@ -16,23 +16,14 @@ namespace UniEat.Controllers
     {
         // Hier wird die Datenbank injiziert.
         private readonly ApplicationDbContext _context;
-        private readonly string _owner;
-       
-
-        public UniEatAdminController(ApplicationDbContext context, System.Security.Principal.IIdentity owner)
+        public UniEatAdminController(ApplicationDbContext context)
         {
             _context = context;
-#pragma warning disable CS8601 // Possible null reference assignment.
-            _owner = owner.Name;
-#pragma warning restore CS8601 // Possible null reference assignment.
-
-
-
         }
         
         public IActionResult CreateEditDishes(int Id)
         {
-            DbComs dc = new DbComs(_context, _owner);
+            DbComs dc = new DbComs(_context);
             dc.CreateEditDishes(Id);
             return View();
 
@@ -40,7 +31,7 @@ namespace UniEat.Controllers
         [HttpPost]
         public IActionResult AddDishToDB(DishesDbModel dish)
         {
-            DbComs dc = new DbComs(_context, _owner);
+            DbComs dc = new DbComs(_context);
             dish.Owner = User.Identity.Name;
             dc.AddDish(dish);
             return RedirectToAction("CreateEditDishes");
@@ -82,7 +73,7 @@ namespace UniEat.Controllers
         [HttpPost]
         public IActionResult DeleteDish(int Id)
         {
-            DbComs database = new DbComs(_context, _owner);
+            DbComs database = new DbComs(_context);
             database.DeleteDish(Id);
 
             return RedirectToAction("EditDish");
