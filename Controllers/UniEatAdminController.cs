@@ -19,8 +19,10 @@ namespace UniEat.Controllers
         private readonly string _owner;
        
 
-        public UniEatAdminController(ApplicationDbContext context, System.Security.Principal.IIdentity owner)
+        public UniEatAdminController(ApplicationDbContext context)
         {
+
+        
             _context = context;
         }
         
