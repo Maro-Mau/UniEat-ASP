@@ -3,6 +3,7 @@ using UniEat.Data;
 using UniEat.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace UniEat.Class
 {
@@ -10,30 +11,36 @@ namespace UniEat.Class
     public class DbComs : Controller
     {
         private readonly ApplicationDbContext _context;
+<<<<<<< Updated upstream
 
         public string? Owner { get; }
 
         public DbComs(ApplicationDbContext context)
         {
             _context = context;
+=======
+       
+        public DbComs(ApplicationDbContext context)
+        {
+            _context = context;
+           
+>>>>>>> Stashed changes
         }
         public IActionResult AddDish(DishesDbModel dish)
         {
             
-
             if (dish.Id == 0)
             {
                 
                 dish.CreateTime = DateTime.Now;
                 _context.DishesDatabase.Add(dish);
             }
-            else if (dish.Owner == Owner)
-            {
-                dish.UpdateTime = DateTime.Now;
-                _context.DishesDatabase.Update(dish);
+            //else if ()
+            //{
+            //    dish.UpdateTime = DateTime.Now;
+            //    _context.DishesDatabase.Update(dish);
 
-            }
-
+            //}
             else
             {
                 return Unauthorized();
@@ -53,17 +60,11 @@ namespace UniEat.Class
             if (dishFromDB == null)
                 return NotFound();
             _context.DishesDatabase.Remove(dishFromDB);
-
-
             _context.SaveChanges();
             return Ok();
         }
-
-
-
         public IActionResult CreateEditDishes(int Id)
         {
-
 
             if (Id != 0)
             {
@@ -82,11 +83,6 @@ namespace UniEat.Class
                 }
             }
             return Ok();
-        }
-
-        internal void AddDish(DishesDbModel dish, string? name)
-        {
-            throw new NotImplementedException();
         }
     }
 }

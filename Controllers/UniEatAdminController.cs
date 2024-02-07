@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -16,7 +16,10 @@ namespace UniEat.Controllers
     {
         // Hier wird die Datenbank injiziert.
         private readonly ApplicationDbContext _context;
-        public UniEatAdminController(ApplicationDbContext context)
+        private readonly string _owner;
+       
+
+        public UniEatAdminController(ApplicationDbContext context, System.Security.Principal.IIdentity owner)
         {
             _context = context;
         }
