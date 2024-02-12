@@ -87,5 +87,14 @@ namespace UniEat.Controllers
         {
             return View();
         }
+        public IActionResult ListDishes(int Id)
+        {
+            var dishFromDb = _context.DishesDatabase.SingleOrDefault(x => x.Id == Id);
+            if (dishFromDb == null)
+                return NotFound();
+
+            return View(dishFromDb);
+            
+        }
     }
 }

@@ -255,6 +255,9 @@ namespace UniEat.Data.Migrations
                     b.Property<bool>("Pork")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("Soup")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("UpdateTime")
                         .HasColumnType("datetime2");
 

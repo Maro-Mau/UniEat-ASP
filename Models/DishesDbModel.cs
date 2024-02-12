@@ -13,6 +13,7 @@
         public required string Owner { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime UpdateTime { get; set; }
+        public bool Soup { get; set; }
 
 
     }
