@@ -63,8 +63,57 @@
 
 @section Scripts
 {
-    <script>
     
-    </script>
+        <script>
+            const beefCheckbox = document.getElementById('btncheck1');
+            const porkCheckbox = document.getElementById('btncheck2');
+            const chickenCheckbox = document.getElementById('btncheck3');
+            const fishCheckbox = document.getElementById('btncheck4');
+            const veggieCheckbox = document.getElementById('btncheck5');
+            const soupCheckbox = document.getElementById('btncheck6');
+            
+            const otherCheckboxes = [beefCheckbox, porkCheckbox, chickenCheckbox, fishCheckbox];
 
+        otherCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (veggieCheckbox.checked) {
+                    veggieCheckbox.checked = true;
+                    soupCheckbox.checked = false;
+                }
+                veggieCheckbox.disabled = Array.from(otherCheckboxes).some(cb => cb.checked);
+                soupCheckbox.disabled = !veggieCheckbox.checked;
+            });
+        });
+
+        veggieCheckbox.addEventListener('change', () => {
+            if (veggieCheckbox.checked) {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                    checkbox.disabled = true;
+                });
+                soupCheckbox.checked = true;
+            } else {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.disabled = false;
+                });
+            }
+            soupCheckbox.disabled = !veggieCheckbox.checked;
+        });
+
+        soupCheckbox.addEventListener('change', () => {
+            if (soupCheckbox.checked) {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                    checkbox.disabled = true;
+                });
+                veggieCheckbox.checked = true;
+            } else {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.disabled = false;
+                });
+            }
+        });
+             
+    </script>
+    
 }

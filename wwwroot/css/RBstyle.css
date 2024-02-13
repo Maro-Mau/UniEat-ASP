@@ -1,0 +1,65 @@
+﻿/* Stylesheet.css */
+@import url('/css/RBfonts.css');
+
+#fontsheader {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    color: blue;
+    text-decoration: underline;
+}
+#nagh{
+    font-family: honk, 'Sans Serif Collection';
+    text-align: center;
+    font-weight: 500
+}
+
+.lobster-two-regular {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lobster-two-bold {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.lobster-two-regular-italic {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.lobster-two-bold-italic {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+// <uniquifier > : Use a uniquifier for the class name
+
+.honk-<test> {
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "MORF" 30, "SHLN" 50;
+}
+
+#body {
+    background-color: cornflowerblue;
+
+
+}
+
+/* Path: /css/RBfonts.css */
+/* RBfonts.css */
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+<style >
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+</style >
+
+/*Fonts*/
