@@ -25,6 +25,8 @@ namespace UniEat.Models
         //Friday
         public int FriA { get; set; }
         public int FriB { get; set; }
+        public DateOnly DateBegin { get; set; }
+        public DateOnly DateEnd { get; set; }
 
 
     }
