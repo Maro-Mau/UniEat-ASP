@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using UniEat.Data;
+using UniEat.Models;
+
 
 namespace UniEat
 {
@@ -19,6 +21,9 @@ namespace UniEat
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.Configure<UniEatDatabaseSettings>(
+             builder.Configuration.GetSection("BookStoreDatabase"));
 
             var app = builder.Build();
 

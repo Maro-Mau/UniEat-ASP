@@ -1,4 +1,4 @@
-html {
+/*html {
   font-size: 14px;
 }
 
@@ -19,4 +19,146 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+ UniEat.styles.css*/ 
+
+/* Navbar Styling */
+/*.navbar {
+    background-color: #ffffff;*/ /* Hintergrundfarbe der Navbar */
+    /*border-bottom: 1px solid #e0e0e0;*/ /* Unterer Rand der Navbar */
+/*}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #258cfb;*/ /* Farbe des Texts */
+/*}
+
+.navbar-brand-img {
+    margin-right: 10px;*/ /* Abstand zwischen Bild und Text */
+/*}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;*/ /* Abstand zwischen den Navbar-Elementen */
+/*}
+
+.navbar-nav .nav-link {
+    color: #333;*/ /* Farbe der Navbar-Links */
+/*}
+
+.navbar-toggler {
+    border: none;*/ /* Entfernt die Standard-Rahmen des Toggle-Buttons */
+/*}
+
+.navbar-toggler-icon {
+    background-color: #333;*/ /* Farbe des Toggle-Icons */
+/*}*/
+
+/* Responsive Styling für kleine Bildschirme */
+/*@media (max-width: 767px) {
+    .navbar-collapse {
+        background-color: #ffffff;*/ /* Hintergrundfarbe des Menüs auf kleinen Bildschirmen */
+        /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/ /* Schatten um das Menü auf kleinen Bildschirmen */
+    /*}
+
+    .navbar-nav .nav-item {
+        margin-right: 0;*/ /* Kein Abstand zwischen den Navbar-Elementen auf kleinen Bildschirmen */
+        /*margin-bottom: 10px;*/ /* Abstand unterhalb der Navbar-Elemente auf kleinen Bildschirmen */
+    /*}
+
+    .navbar-toggler-icon {
+        background-color: #258cfb;*/ /* Farbe des Toggle-Icons auf kleinen Bildschirmen */
+    /*}
+}*/
+/* UniEat.styles.css */
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Add your preferred font-family */
+}
+.btn login{
+    background-color: #258cfb;
+    color: #ffffff;
+    border-color: #258cfb;
+}
+.container {
+    max-width: 1200px; /* Adjust the max-width as needed */
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+}
+
+.navbar {
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #343a40;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #343a40;
+}
+
+/* Navigation Styles */
+.navbar-nav {
+    margin-left: auto;
+}
+
+    .navbar-nav a {
+        color: #343a40;
+        font-weight: 500;
+        margin-right: 1rem;
+        transition: color 0.3s ease;
+    }
+
+        .navbar-nav a:hover {
+            color: #007bff; /* Change the color on hover */
+        }
+
+/* Main Content Styles */
+main {
+    padding: 2rem 0;
+}
+
+/* Footer Styles */
+.footer {
+    padding: 1rem 0;
+    background-color: #f8f9fa;
+}
+
+    .footer a {
+        color: #6c757d;
+    }
+
+        .footer a:hover {
+            color: #007bff;
+        }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        flex-basis: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .navbar-nav {
+        margin: 0;
+    }
+
+        .navbar-nav a {
+            display: block;
+            margin-bottom: 1rem;
+        }
 }
