@@ -24,7 +24,7 @@ namespace UniEat.Controllers
         [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {
-            var DishId = _context.DishesDatabase.SingleOrDefault(x => x.Id == id);
+            var DishId = _context.DishesDatabase.SingleOrDefault(x => x.DishId == id);
             if (DishId == null)
                 return NotFound();
             return Ok(DishId);
@@ -32,7 +32,7 @@ namespace UniEat.Controllers
         [HttpPost("Create")]
         public IActionResult Post(DishesDbModel dishesDb)
         {
-            if(dishesDb.Id != 0)
+            if(dishesDb.DishId != 0)
                 return BadRequest();
            
             dishesDb.CreateTime = DateTime.Now;
@@ -52,7 +52,7 @@ namespace UniEat.Controllers
             //}
 
 
-            if (dishesDb.Id != 0)
+            if (dishesDb.DishId != 0)
                 return BadRequest();
 
             dishesDb.CreateTime = DateTime.Now;
@@ -65,7 +65,7 @@ namespace UniEat.Controllers
         [HttpDelete("Delete")]
         public IActionResult Delete(int id)
         {
-            var dishDb = _context.DishesDatabase.SingleOrDefault(x =>x.Id == id);
+            var dishDb = _context.DishesDatabase.SingleOrDefault(x =>x.DishId == id);
             if (dishDb == null)
                 return NotFound();
 
@@ -77,7 +77,7 @@ namespace UniEat.Controllers
         public IActionResult Edit(DishesDbModel dishesDb)
         {
 
-            if (dishesDb.Id == 0)
+            if (dishesDb.DishId == 0)
                 return NotFound();
             dishesDb.UpdateTime = DateTime.Now;
             _context.DishesDatabase.Update(dishesDb);

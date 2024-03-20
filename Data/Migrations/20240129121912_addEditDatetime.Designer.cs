@@ -27,7 +27,7 @@ namespace UniEat.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("DishId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -42,7 +42,7 @@ namespace UniEat.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("Id");
+                    b.HasKey("DishId");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
@@ -54,11 +54,11 @@ namespace UniEat.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DishId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DishId"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -70,7 +70,7 @@ namespace UniEat.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("DishId");
 
                     b.HasIndex("RoleId");
 
@@ -79,7 +79,7 @@ namespace UniEat.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("DishId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -129,7 +129,7 @@ namespace UniEat.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("Id");
+                    b.HasKey("DishId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -144,11 +144,11 @@ namespace UniEat.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DishId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DishId"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -160,7 +160,7 @@ namespace UniEat.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("DishId");
 
                     b.HasIndex("UserId");
 
@@ -229,11 +229,11 @@ namespace UniEat.Data.Migrations
 
             modelBuilder.Entity("UniEat.Models.DishesDbModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DishId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DishId"));
 
                     b.Property<bool>("Beef")
                         .HasColumnType("bit");
@@ -264,18 +264,18 @@ namespace UniEat.Data.Migrations
                     b.Property<bool>("Veggie")
                         .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                    b.HasKey("DishId");
 
                     b.ToTable("DishesDatabase");
                 });
 
             modelBuilder.Entity("UniEat.Models.LunchPosting", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DishId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DishId"));
 
                     b.Property<bool>("Beef")
                         .HasColumnType("bit");
@@ -348,7 +348,7 @@ namespace UniEat.Data.Migrations
                     b.Property<bool>("Veggie")
                         .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                    b.HasKey("DishId");
 
                     b.ToTable("LunchPostss");
                 });

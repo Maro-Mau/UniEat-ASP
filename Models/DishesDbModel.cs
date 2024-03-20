@@ -1,9 +1,11 @@
-﻿namespace UniEat.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UniEat.Models
 {
     public class DishesDbModel
     {
-
-        public int Id { get; set; }
+        [Key]
+        public int DishId { get; set; }
         public required string NameOfDish { get; set; }
         public bool Beef { get; set; }
         public bool Pork { get; set; }

@@ -1,8 +1,11 @@
-﻿namespace UniEat.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UniEat.Models
 {
     public class MenuList
     {
-        public int Id { get; set; }
+        [Key]
+        public int MenuId { get; set; }
         //Monday
         public int MonA { get; set; }
         public int MonB { get; set; }

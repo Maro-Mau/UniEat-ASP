@@ -8,6 +8,7 @@ namespace UniEat.Data
     {
         public DbSet<LunchPosting> LunchPostss { get; set; }
         public DbSet<DishesDbModel> DishesDatabase { get; set; }
+        public DbSet<MenuList> MenuList { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
