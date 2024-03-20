@@ -26,64 +26,25 @@
             <tr>
                 <td>@dishesDbModel.NameOfDish</td>
                 <td id="Beef">
-                    @if (dishesDbModel.Beef == true)
-                    {
-                        <img src="~/Assets/Icons/True.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
-                    else
-                    {
-                        <img src="~/Assets/Icons/False.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
+                    <img src="~/Assets/Icons/@(dishesDbModel.Beef ? "True" : "False").svg" alt="Beef" width="20" height="20" />
                 </td>
                 <td id="Pork">
-                    @if (dishesDbModel.Pork == true)
-                    {
-                        <img src="~/Assets/Icons/True.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
-                    else
-                    {
-                        <img src="~/Assets/Icons/False.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
+                    <img src="~/Assets/Icons/@(dishesDbModel.Pork ? "True" : "False").svg" alt="pork" width="20" height="20" /> 
                 </td>
                 <td id="Chicken">
-                    @if (dishesDbModel.Chicken == true)
-                    {
-                        <img src="~/Assets/Icons/True.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
-                    else
-                    {
-                        <img src="~/Assets/Icons/False.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
+                    <img src="~/Assets/Icons/@(dishesDbModel.Chicken ? "True" : "False").svg" alt="pork" width="20" height="20" />
                 </td>
                 <td id="Veggie">
-                    @if (dishesDbModel.Veggie == true)
-                    {
-                        <img src="~/Assets/Icons/True.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
-                    else
-                    {
-                        <img src="~/Assets/Icons/False.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
+                    <img src="~/Assets/Icons/@(dishesDbModel.Veggie ? "True" : "False").svg" alt="pork" width="20" height="20" />
+
                 </td>
                 <td id="Fish">
-                    @if (dishesDbModel.Fish == true)
-                    {
-                        <img src="~/Assets/Icons/True.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
-                    else
-                    {
-                        <img src="~/Assets/Icons/False.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
+                    <img src="~/Assets/Icons/@(dishesDbModel.Fish ? "True" : "False").svg" alt="pork" width="20" height="20" />
+
                 </td>
                 <td id="Soup">
-                    @if (dishesDbModel.Soup == true)
-                    {
-                        <img src="~/Assets/Icons/True.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
-                    else
-                    {
-                        <img src="~/Assets/Icons/False.svg" alt="Not True but ok with that" width="20" height="20" />
-                    }
+                    <img src="~/Assets/Icons/@(dishesDbModel.Soup ? "True" : "False").svg" alt="pork" width="20" height="20" />
+
                 </td>
                 <td id="Options">
                     <a asp-route-id="@dishesDbModel.Id" asp-controller="UniEatAdmin" asp-action="CreateEditDishes" class="btn btn-warning">Bearbeiten</a>
