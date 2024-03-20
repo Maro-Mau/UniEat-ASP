@@ -1,0 +1,119 @@
+﻿@model UniEat.Models.DishesDbModel
+
+@{
+    ViewData["Title"] = "Create Dishes";
+}
+<form asp-controller="UniEatAdmin" asp-action="addDishToDB">
+    <div class="card">
+        <div class="card-header">
+           <h1 class="accordion-body">Hier werden gerichte in die Datenbank eingetragen</h1>
+        </div>
+        <div class="card-body">
+            <input hidden asp-for="DishId" />
+            
+      
+               @*  <div class="input-group mb-3">
+                    
+                    <input type="text" class="form-control" asp-for="NameOfDish" aria-label="Sizing example input" placeholder="Gib den Namen des Grichts ein" aria-describedby="inputGroup-sizing-default">
+                </div> *@
+            <div class="form-floating mb-3">
+                <input type="text" asp-for="NameOfDish" class="form-control" id="floatingInput" placeholder="Gib den Namen des Gerichts ein!">
+                <label for="floatingInput">Gib den Namen des Gerichts ein</label>
+            </div>
+
+                <hr />
+                 <p>Bitte wähle aus</p>
+             
+            <div class="col container mx-auto">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="checkbox" asp-for="Beef" class="btn-check" id="btncheck1" autocomplete="off">
+                <label class="btn btn-outline-success" for="btncheck1">Beef</label>
+
+                <input type="checkbox" asp-for="Pork" class="btn-check" id="btncheck2" autocomplete="off">
+                <label class="btn btn-outline-danger" for="btncheck2">Pork</label>
+
+                <input type="checkbox" asp-for="Chicken" class="btn-check" id="btncheck3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btncheck3">Geflügel</label>
+
+                <input type="checkbox" asp-for="Fish" class="btn-check" id="btncheck4" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btncheck4">Fish</label>
+
+                <input type="checkbox" asp-for="Veggie" class="btn-check" id="btncheck5" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btncheck5">Veggie</label>
+
+                <input type="checkbox" asp-for="Soup" class="btn-check" id="btncheck6" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btncheck6">Suppe</label>
+             </div>
+
+
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">Submit</button>
+            
+            <button class="btn btn-danger" asp-controller="UniEatAdmin" asp-action="Index">Zurück</button>
+                    <button class="btn bg-sky-500 hover:bg-sky-700">Test</button>
+        </div>
+        
+
+            
+
+
+    </div>
+</form>
+
+@section Scripts
+{
+    
+        <script>
+            const beefCheckbox = document.getElementById('btncheck1');
+            const porkCheckbox = document.getElementById('btncheck2');
+            const chickenCheckbox = document.getElementById('btncheck3');
+            const fishCheckbox = document.getElementById('btncheck4');
+            const veggieCheckbox = document.getElementById('btncheck5');
+            const soupCheckbox = document.getElementById('btncheck6');
+            
+            const otherCheckboxes = [beefCheckbox, porkCheckbox, chickenCheckbox, fishCheckbox];
+
+        otherCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (veggieCheckbox.checked) {
+                    veggieCheckbox.checked = true;
+                    soupCheckbox.checked = false;
+                }
+                veggieCheckbox.disabled = Array.from(otherCheckboxes).some(cb => cb.checked);
+                soupCheckbox.disabled = !veggieCheckbox.checked;
+            });
+        });
+
+        veggieCheckbox.addEventListener('change', () => {
+            if (veggieCheckbox.checked) {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                    checkbox.disabled = true;
+                });
+                soupCheckbox.checked = true;
+            } else {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.disabled = false;
+                });
+            }
+            soupCheckbox.disabled = !veggieCheckbox.checked;
+        });
+
+        soupCheckbox.addEventListener('change', () => {
+            if (soupCheckbox.checked) {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                    checkbox.disabled = true;
+                });
+                veggieCheckbox.checked = true;
+            } else {
+                otherCheckboxes.forEach(checkbox => {
+                    checkbox.disabled = false;
+                });
+            }
+        });
+             
+    </script>
+    
+}

@@ -1,0 +1,104 @@
+﻿@model List<DishesDbModel>
+@{
+    ViewData["Title"] = "Edit Dish";
+    
+}
+
+<h1 id="nagh">Die zufriedenheit eines Menschen liegt im vollen Magen</h1>
+
+<table id="DishEditTable" class="table table-bordered table-striped table-hover">
+    <thead class="text-info">
+        <tr>
+            <th>Name</th>
+            <th>Beef</th>
+            <th>Pork</th>
+            <th>Chicken</th>
+            <th>Veggie</th>
+            <th>Fish</th>
+            <th>Suppe</th>
+            <th>Optionen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DishesDbModel dishesDbModel in Model)
+        {
+            bool beef = dishesDbModel.Beef;
+            <tr>
+                <td>@dishesDbModel.NameOfDish</td>
+                <td id="Beef">
+                    <img src="~/Assets/Icons/@(dishesDbModel.Beef ? "True" : "False").svg" alt="Beef" width="20" height="20" />
+                </td>
+                <td id="Pork">
+                    <img src="~/Assets/Icons/@(dishesDbModel.Pork ? "True" : "False").svg" alt="pork" width="20" height="20" /> 
+                </td>
+                <td id="Chicken">
+                    <img src="~/Assets/Icons/@(dishesDbModel.Chicken ? "True" : "False").svg" alt="pork" width="20" height="20" />
+                </td>
+                <td id="Veggie">
+                    <img src="~/Assets/Icons/@(dishesDbModel.Veggie ? "True" : "False").svg" alt="pork" width="20" height="20" />
+
+                </td>
+                <td id="Fish">
+                    <img src="~/Assets/Icons/@(dishesDbModel.Fish ? "True" : "False").svg" alt="pork" width="20" height="20" />
+
+                </td>
+                <td id="Soup">
+                    <img src="~/Assets/Icons/@(dishesDbModel.Soup ? "True" : "False").svg" alt="pork" width="20" height="20" />
+
+                </td>
+                <td id="Options">
+                    <a asp-route-id="@dishesDbModel.DishId" asp-controller="UniEatAdmin" asp-action="CreateEditDishes" class="btn btn-warning">Bearbeiten</a>
+                    <button onclick="onClickedDeleteButton(@dishesDbModel.DishId)" class="btn btn-danger">Löschen</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<form>
+<button class="btn btn-danger" asp-controller="UniEatAdmin" asp-action="Index">Zurück</button>
+</form>
+
+@section Scripts {
+    <script>
+        let table = new DataTable('#DishEditTable');
+
+        function onClickedDeleteButton(Id) {
+            Swal.fire({
+                title: "Bist du dir Sicher?",
+                text: "Das kann nicht Rückgängig gemacht werden!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Abbrechen",
+                confirmButtonText: "Ja, tu es!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Backend call delete by ID
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("DeleteDish")",
+                        data: { Id: Id },
+                        success: function (msg) {
+                            Swal.fire({
+                                title: "Gelöscht!",
+                                text: "Der Eintrag wurde Gelöscht.",
+                                icon: "success"
+                            }).then((result) => {
+                                location.reload();
+                            });
+                        },
+                        error: function (msg) {
+                            Swal.fire({
+                                title: "Error",
+                                text: "Da ist ein Fehler passiert",
+                                icon: "error"
+                            })
+                        },
+                    });
+                }
+            });
+        }
+    </script>
+}
