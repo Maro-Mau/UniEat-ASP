@@ -89,7 +89,7 @@ namespace UniEat.Controllers
         }
         public IActionResult ListDishes(int Id)
         {
-            var dishFromDb = _context.DishesDatabase.SingleOrDefault(x => x.DishId == Id);
+            var dishFromDb = _context.DishesDatabase.SingleOrDefault(x => x.Id == Id);
             if (dishFromDb == null)
                 return NotFound();
 

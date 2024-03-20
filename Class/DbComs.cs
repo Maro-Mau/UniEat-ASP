@@ -23,7 +23,7 @@ namespace UniEat.Class
         public IActionResult AddDish(DishesDbModel dish)
         {
             
-            if (dish.DishId == 0)
+            if (dish.Id == 0)
             {
                 
                 dish.CreateTime = DateTime.Now;
@@ -50,7 +50,7 @@ namespace UniEat.Class
             if (Id == 0)
                 return BadRequest();
 
-            var dishFromDB = _context.DishesDatabase.SingleOrDefault(x => x.DishId == Id);
+            var dishFromDB = _context.DishesDatabase.SingleOrDefault(x => x.Id == Id);
             if (dishFromDB == null)
                 return NotFound();
             _context.DishesDatabase.Remove(dishFromDB);
@@ -63,7 +63,7 @@ namespace UniEat.Class
             if (Id != 0)
             {
 
-                var dishFromDb = _context.DishesDatabase.SingleOrDefault(x => x.DishId == Id);
+                var dishFromDb = _context.DishesDatabase.SingleOrDefault(x => x.Id == Id);
 
                 if (dishFromDb != null)
                 {

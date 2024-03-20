@@ -47,8 +47,8 @@
 
                 </td>
                 <td id="Options">
-                    <a asp-route-id="@dishesDbModel.DishId" asp-controller="UniEatAdmin" asp-action="CreateEditDishes" class="btn btn-warning">Bearbeiten</a>
-                    <button onclick="onClickedDeleteButton(@dishesDbModel.DishId)" class="btn btn-danger">Löschen</button>
+                    <a asp-route-id="@dishesDbModel.Id" asp-controller="UniEatAdmin" asp-action="CreateEditDishes" class="btn btn-warning">Bearbeiten</a>
+                    <button onclick="onClickedDeleteButton(@dishesDbModel.Id)" class="btn btn-danger">Löschen</button>
                 </td>
             </tr>
         }

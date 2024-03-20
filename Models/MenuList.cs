@@ -4,8 +4,8 @@ namespace UniEat.Models
 {
     public class MenuList
     {
-        [Key]
-        public int MenuId { get; set; }
+        
+        public int Id { get; set; }
         //Monday
         public int MonA { get; set; }
         public int MonB { get; set; }

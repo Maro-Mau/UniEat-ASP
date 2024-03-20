@@ -4,8 +4,8 @@ namespace UniEat.Models
 {
     public class DishesDbModel
     {
-        [Key]
-        public int DishId { get; set; }
+        
+        public int Id { get; set; }
         public required string NameOfDish { get; set; }
         public bool Beef { get; set; }
         public bool Pork { get; set; }
